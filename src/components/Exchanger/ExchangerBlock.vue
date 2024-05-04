@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, reactive } from 'vue'
-import IconArrow from '@/components/IconArrow.vue'
+import IconArrow from '@/components/Icons/IconArrow.vue'
 import ExchangerBlockTextField from '@/components/Exchanger/ExchangerBlockTextField.vue'
 import ExchangerBlockPayment from '@/components/Exchanger/ExchangerBlockPayment.vue'
 import BaseCheckbox from '@/components/BaseCheckbox.vue'
@@ -56,7 +56,7 @@ function changeDirection(d: 'give' | 'take', payment: string) {
                     :type="'number'"
                     :placeholder="'0.00'"
                     :icon="direction.give"
-                    @setOpenPaymentSelect="openPaymentSelect = 'give'"
+                    @set-open-payment-select="openPaymentSelect = 'give'"
                 />
             </div>
             <div class="exchanger__currency">
@@ -100,7 +100,7 @@ function changeDirection(d: 'give' | 'take', payment: string) {
                     :type="'number'"
                     :placeholder="'0.00'"
                     :icon="direction.take"
-                    @setOpenPaymentSelect="openPaymentSelect = 'take'"
+                    @set-open-payment-select="openPaymentSelect = 'take'"
                 />
             </div>
             <div class="exchanger__currency">
@@ -391,7 +391,7 @@ function changeDirection(d: 'give' | 'take', payment: string) {
     }
 }
 
-@media (max-width: 550px) {
+@media screen and (max-width: $mobile) {
     .exchanger {
         flex-direction: column;
         max-height: none;

@@ -1,19 +1,28 @@
 <script setup lang="ts">
-import ExchangerBlock from '@/components/Exchanger/ExchangerBlock.vue'
+import TheHeader from '@/components/TheHeader.vue'
+import TheIntro from '@/components/TheIntro.vue'
+import TheAdvantages from '@/components/TheAdvantages.vue'
+import TheReserves from '@/components/TheReserves.vue'
+import TheNews from '@/components/TheNews.vue'
+import TheReviews from '@/components/TheReviews.vue'
+import TheFeedback from '@/components/TheFeedback.vue'
 </script>
 
 <template>
-    <main>
-        <ExchangerBlock />
-    </main>
+    <div class="wrapper">
+        <TheHeader />
+        <TheIntro />
+        <TheAdvantages />
+        <TheReserves />
+        <TheNews />
+        <TheReviews />
+        <TheFeedback />
+    </div>
 </template>
 
 <style scoped>
-main {
+.wrapper {
     width: 100%;
     min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 </style>

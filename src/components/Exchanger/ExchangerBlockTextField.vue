@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import IconPayment from '@/components/PaymentIcons/IconPayment.vue'
+import IconPayment from '@/components/Icons/Payment/IconPayment.vue'
 
 defineProps<{
     type: string
