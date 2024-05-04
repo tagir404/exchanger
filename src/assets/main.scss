@@ -4,3 +4,9 @@
     font-size: 40px;
     font-weight: normal;
 }
+
+@media screen and (max-width: $mobile) {
+    .section-title {
+        font-size: 20px;
+    }
+}

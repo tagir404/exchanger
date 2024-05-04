@@ -50,8 +50,11 @@ const reviews = ref([
                 <h2 class="reviews__title section-title">Reviews</h2>
                 <BaseButton :variant="'white'">See all</BaseButton>
             </div>
-            <div class="reviews__list">
-                <article
+            <swiper-container
+                class="reviews__list"
+                pagination="true"
+            >
+                <swiper-slide
                     v-for="review in reviews"
                     :key="review.text"
                     class="reviews__item"
@@ -65,8 +68,8 @@ const reviews = ref([
                         <IconAuthor :variant="'white'" />
                         <span class="reviews__item-author-name">{{ review.author }}</span>
                     </div>
-                </article>
-            </div>
+                </swiper-slide>
+            </swiper-container>
         </AppContainer>
     </section>
 </template>
@@ -136,6 +139,50 @@ const reviews = ref([
         align-items: center;
         gap: 8px;
         padding: 16px 24px;
+    }
+}
+
+@media screen and (max-width: $mobile) {
+    .reviews {
+        padding: 24px 0;
+
+        &__head {
+            margin-bottom: 16px;
+        }
+
+        &__list {
+            display: block;
+
+            &::part(container) {
+                padding-bottom: 10px;
+            }
+
+            &::part(pagination) {
+                position: static;
+                margin-top: 32px;
+                display: flex;
+                justify-content: center;
+                gap: 8px;
+            }
+
+            &::part(bullet) {
+                opacity: 1;
+                width: 10px;
+                height: 10px;
+                background: transparent;
+                outline: 1px solid #fff;
+                outline-offset: 1px;
+            }
+
+            &::part(bullet-active) {
+                opacity: 1;
+                width: 10px;
+                height: 10px;
+                background: #fff;
+                outline: 1px solid #fff;
+                outline-offset: 1px;
+            }
+        }
     }
 }
 </style>

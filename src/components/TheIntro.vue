@@ -44,4 +44,16 @@ import ExchangerBlock from '@/components/Exchanger/ExchangerBlock.vue'
         margin-bottom: 51px;
     }
 }
+
+@media screen and (max-width: $mobile) {
+    .intro {
+        &__title {
+            font-size: 26px;
+        }
+
+        &__subtitle {
+            font-size: 14px;
+        }
+    }
+}
 </style>

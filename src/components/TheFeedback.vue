@@ -95,4 +95,18 @@ const contacts = ref([
         color: $lightTurquoise;
     }
 }
+
+@media screen and (max-width: $mobile) {
+    .feedback {
+        padding: 24px 0;
+
+        &__title {
+            margin-bottom: 26px;
+        }
+
+        &__contacts {
+            flex-direction: column;
+        }
+    }
+}
 </style>

@@ -199,7 +199,46 @@ const reserves = ref([
     }
 
     &__item-value {
+        color: #7a8698;
         margin-left: auto;
+    }
+}
+
+@media screen and (max-width: $mobile) {
+    .reserves {
+        height: auto;
+        background: none;
+
+        &:deep(.container) {
+            padding: 24px;
+        }
+
+        &__container {
+            position: static;
+            border-radius: 8px 8px 0 0;
+        }
+
+        &__title {
+            margin-bottom: 16px;
+        }
+
+        &__list {
+            display: flex;
+            flex-direction: column;
+        }
+
+        &__item {
+            flex-wrap: wrap;
+            padding: 16px;
+
+            &:nth-child(n + 6) {
+                display: none;
+            }
+        }
+
+        &__item-value {
+            width: 100%;
+        }
     }
 }
 </style>

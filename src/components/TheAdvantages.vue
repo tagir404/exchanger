@@ -1,8 +1,11 @@
 <script setup lang="ts">
-import { ref, markRaw } from 'vue'
+import { ref, markRaw, onMounted } from 'vue'
 import IconGuarantee from '@/components/Icons/Advantages/IconGuarantee.vue'
 import IconConfidentiality from '@/components/Icons/Advantages/IconConfidentiality.vue'
 import IconSupport from '@/components/Icons/Advantages/IconSupport.vue'
+import type { Swiper } from 'swiper/types'
+
+const swiperEl = ref<Swiper>()
 
 const advantages = ref([
     {
@@ -36,6 +39,12 @@ const advantages = ref([
         icon: markRaw(IconGuarantee)
     }
 ])
+
+onMounted(() => {
+    if (window.innerWidth > 550) {
+        swiperEl.value?.destroy()
+    }
+})
 </script>
 
 <template>
@@ -45,8 +54,13 @@ const advantages = ref([
                 Our platform facilitates secure and <span>swift cryptocurrency exchanges</span>
             </h2>
 
-            <div class="advantages__list">
-                <div
+            <swiper-container
+                ref="swiperEl"
+                class="advantages__list"
+                slides-per-view="auto"
+                space-between="32px"
+            >
+                <swiper-slide
                     v-for="advantage in advantages"
                     :key="advantage.title"
                     class="advantages__item"
@@ -58,8 +72,8 @@ const advantages = ref([
                     <div class="advantages__item-divider"></div>
                     <h3 class="advantages__item-title">{{ advantage.title }}</h3>
                     <p class="advantages__item-text">{{ advantage.text }}</p>
-                </div>
-            </div>
+                </swiper-slide>
+            </swiper-container>
         </AppContainer>
     </section>
 </template>
@@ -67,6 +81,8 @@ const advantages = ref([
 <style scoped lang="scss">
 .advantages {
     padding: 110px 0 180px;
+    background: #fff;
+    position: relative;
 
     &__title {
         display: flex;
@@ -104,6 +120,28 @@ const advantages = ref([
 
     &__item-text {
         font-weight: 300;
+    }
+}
+
+@media screen and (max-width: $mobile) {
+    .advantages {
+        padding: 24px 0;
+
+        &__title {
+            margin-bottom: 16px;
+        }
+
+        &__list {
+            display: block;
+
+            &::part(container) {
+                overflow: visible;
+            }
+        }
+
+        &__item {
+            width: 50vw;
+        }
     }
 }
 </style>

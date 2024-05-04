@@ -69,4 +69,14 @@ nav {
     display: flex;
     gap: 6px;
 }
+
+@media screen and (max-width: $mobile) {
+    nav {
+        display: none;
+    }
+
+    .actions {
+        display: none;
+    }
+}
 </style>

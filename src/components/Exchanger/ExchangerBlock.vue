@@ -205,7 +205,8 @@ function changeDirection(d: 'give' | 'take', payment: string) {
 .exchanger {
     font-weight: 300;
     background: #fff;
-    width: 1140px;
+    width: 100%;
+    max-width: 1140px;
     max-height: 665px;
     display: flex;
     border-radius: 32px 32px 0 0;

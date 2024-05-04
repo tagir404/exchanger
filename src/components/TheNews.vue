@@ -1,14 +1,15 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 import BaseButton from '@/components/BaseButton.vue'
 import IconAuthor from '@/components/Icons/IconAuthor.vue'
 import IconViews from '@/components/Icons/IconViews.vue'
-import img1 from '@/assets/news/1.png'
-import img2 from '@/assets/news/2.png'
-import img3 from '@/assets/news/3.png'
-import img4 from '@/assets/news/4.png'
-import img5 from '@/assets/news/5.png'
-import img6 from '@/assets/news/6.png'
+import img1 from '@/assets/img/news/1.png'
+import img2 from '@/assets/img/news/2.png'
+import img3 from '@/assets/img/news/3.png'
+import img4 from '@/assets/img/news/4.png'
+import img5 from '@/assets/img/news/5.png'
+import img6 from '@/assets/img/news/6.png'
+import type Swiper from 'swiper'
 
 const news = ref([
     {
@@ -54,6 +55,14 @@ const news = ref([
         author: 'Admin'
     }
 ])
+
+const swiperEl = ref<Swiper>()
+
+onMounted(() => {
+    if (window.innerWidth > 550) {
+        swiperEl.value?.destroy()
+    }
+})
 </script>
 
 <template>
@@ -63,8 +72,11 @@ const news = ref([
                 <h2 class="news__title section-title">News</h2>
                 <BaseButton :variant="'blue'">See all</BaseButton>
             </div>
-            <div class="news__list">
-                <article
+            <swiper-container
+                class="news__list"
+                pagination="true"
+            >
+                <swiper-slide
                     v-for="newsItem in news"
                     :key="newsItem.text"
                     class="news__item"
@@ -88,8 +100,8 @@ const news = ref([
                             </div>
                         </div>
                     </div>
-                </article>
-            </div>
+                </swiper-slide>
+            </swiper-container>
         </AppContainer>
     </section>
 </template>
@@ -159,6 +171,50 @@ const news = ref([
         display: flex;
         align-items: center;
         gap: 7px;
+    }
+}
+
+@media screen and (max-width: $mobile) {
+    .news {
+        padding: 24px 0;
+
+        &__head {
+            margin-bottom: 16px;
+        }
+
+        &__list {
+            display: block;
+
+            &::part(container) {
+                padding-bottom: 10px;
+            }
+
+            &::part(pagination) {
+                position: static;
+                margin-top: 32px;
+                display: flex;
+                justify-content: center;
+                gap: 8px;
+            }
+
+            &::part(bullet) {
+                opacity: 1;
+                width: 10px;
+                height: 10px;
+                background: #f5f5f5;
+                outline: 1px solid $primaryBlue;
+                outline-offset: 1px;
+            }
+
+            &::part(bullet-active) {
+                opacity: 1;
+                width: 10px;
+                height: 10px;
+                background: $primaryBlue;
+                outline: 1px solid $primaryBlue;
+                outline-offset: 1px;
+            }
+        }
     }
 }
 </style>
