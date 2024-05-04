@@ -1,9 +1,8 @@
 <script setup lang="ts">
-import { ref, markRaw, onMounted } from 'vue'
+import { ref, markRaw } from 'vue'
 import IconGuarantee from '@/components/Icons/Advantages/IconGuarantee.vue'
 import IconConfidentiality from '@/components/Icons/Advantages/IconConfidentiality.vue'
 import IconSupport from '@/components/Icons/Advantages/IconSupport.vue'
-import type { Swiper } from 'swiper/types'
 
 const advantages = ref([
     {
@@ -37,14 +36,6 @@ const advantages = ref([
         icon: markRaw(IconGuarantee)
     }
 ])
-
-const swiperEl = ref<Swiper>()
-
-onMounted(() => {
-    if (window.innerWidth > 550) {
-        swiperEl.value?.destroy()
-    }
-})
 </script>
 
 <template>
@@ -55,7 +46,6 @@ onMounted(() => {
             </h2>
 
             <swiper-container
-                ref="swiperEl"
                 class="advantages__list"
                 slides-per-view="auto"
                 space-between="32px"

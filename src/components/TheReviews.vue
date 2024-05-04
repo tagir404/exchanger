@@ -1,8 +1,7 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
+import { ref } from 'vue'
 import BaseButton from '@/components/BaseButton.vue'
 import IconAuthor from '@/components/Icons/IconAuthor.vue'
-import type Swiper from 'swiper'
 
 const reviews = ref([
     {
@@ -42,14 +41,6 @@ const reviews = ref([
         author: 'Name'
     }
 ])
-
-const swiperEl = ref<Swiper>()
-
-onMounted(() => {
-    if (window.innerWidth > 550) {
-        swiperEl.value?.destroy()
-    }
-})
 </script>
 
 <template>
@@ -60,7 +51,6 @@ onMounted(() => {
                 <BaseButton :variant="'white'">See all</BaseButton>
             </div>
             <swiper-container
-                ref="swiperEl"
                 class="reviews__list"
                 pagination="true"
             >

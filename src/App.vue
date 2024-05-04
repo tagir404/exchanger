@@ -6,6 +6,15 @@ import TheReserves from '@/components/TheReserves.vue'
 import TheNews from '@/components/TheNews.vue'
 import TheReviews from '@/components/TheReviews.vue'
 import TheFeedback from '@/components/TheFeedback.vue'
+
+import { register } from 'swiper/element/bundle'
+import { onMounted } from 'vue'
+
+onMounted(() => {
+    if (window.innerWidth < 551) {
+        register()
+    }
+})
 </script>
 
 <template>

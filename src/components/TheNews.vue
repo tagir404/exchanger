@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
+import { ref } from 'vue'
 import BaseButton from '@/components/BaseButton.vue'
 import IconAuthor from '@/components/Icons/IconAuthor.vue'
 import IconViews from '@/components/Icons/IconViews.vue'
@@ -9,7 +9,6 @@ import img3 from '@/assets/img/news/3.png'
 import img4 from '@/assets/img/news/4.png'
 import img5 from '@/assets/img/news/5.png'
 import img6 from '@/assets/img/news/6.png'
-import type Swiper from 'swiper'
 
 const news = ref([
     {
@@ -55,14 +54,6 @@ const news = ref([
         author: 'Admin'
     }
 ])
-
-const swiperEl = ref<Swiper>()
-
-onMounted(() => {
-    if (window.innerWidth > 550) {
-        swiperEl.value?.destroy()
-    }
-})
 </script>
 
 <template>
