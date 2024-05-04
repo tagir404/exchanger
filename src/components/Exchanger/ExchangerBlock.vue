@@ -1,9 +1,19 @@
 <script setup lang="ts">
-import { ref, reactive } from 'vue'
+import { ref, reactive, markRaw } from 'vue'
 import IconArrow from '@/components/Icons/IconArrow.vue'
 import ExchangerBlockTextField from '@/components/Exchanger/ExchangerBlockTextField.vue'
 import ExchangerBlockPayment from '@/components/Exchanger/ExchangerBlockPayment.vue'
 import BaseCheckbox from '@/components/BaseCheckbox.vue'
+import IconCash from '@/components/Icons/Payment/IconCash.vue'
+import IconVisaMasterCardUSD from '@/components/Icons/Payment/IconVisaMasterCardUSD.vue'
+import IconVisaMasterCardEUR from '@/components/Icons/Payment/IconVisaMasterCardEUR.vue'
+import IconEthereum from '@/components/Icons/Payment/IconEthereum.vue'
+import IconEOS from '@/components/Icons/Payment/IconEOS.vue'
+import IconTrueUSD from '@/components/Icons/Payment/IconTrueUSD.vue'
+import IconTether from '@/components/Icons/Payment/IconTether.vue'
+import IconMonero from '@/components/Icons/Payment/IconMonero.vue'
+
+import type { Payment } from '@/types/types'
 
 const currencyItems = ref(['all', 'usd', 'eur', 'rus'])
 const activeCurrency = reactive({
@@ -11,33 +21,87 @@ const activeCurrency = reactive({
     take: 'all'
 })
 
-const direction = reactive({
-    give: 'Visa/MasterCard USD',
-    take: 'Visa/MasterCard USD'
+const direction = reactive<{ give: Payment; take: Payment }>({
+    give: {
+        text: 'Visa/MasterCard USD',
+        icon: markRaw(IconVisaMasterCardUSD)
+    },
+    take: {
+        text: 'Visa/MasterCard USD',
+        icon: markRaw(IconVisaMasterCardUSD)
+    }
 })
 
 const openPaymentSelect = ref<'give' | 'take' | null>(null)
 
 const paymentsItems = ref([
-    'Cash RUB',
-    'Visa/MasterCard USD',
-    'Visa/MasterCard EUR',
-    'Ethereum ETH',
-    'EOS EOS',
-    'TrueUSD TRC20 TUSD',
-    'Tether TRC20 USDT',
-    'Monero XMR',
-    'Cash RUB',
-    'Visa/MasterCard USD',
-    'Visa/MasterCard EUR',
-    'Ethereum ETH',
-    'EOS EOS',
-    'TrueUSD TRC20 TUSD',
-    'Tether TRC20 USDT',
-    'Monero XMR'
+    {
+        text: 'Cash RUB',
+        icon: markRaw(IconCash)
+    },
+    {
+        text: 'Visa/MasterCard USD',
+        icon: markRaw(IconVisaMasterCardUSD)
+    },
+    {
+        text: 'Visa/MasterCard EUR',
+        icon: markRaw(IconVisaMasterCardEUR)
+    },
+    {
+        text: 'Ethereum ETH',
+        icon: markRaw(IconEthereum)
+    },
+    {
+        text: 'EOS EOS',
+        icon: markRaw(IconEOS)
+    },
+    {
+        text: 'TrueUSD TRC20 TUSD',
+        icon: markRaw(IconTrueUSD)
+    },
+    {
+        text: 'Tether TRC20 USDT',
+        icon: markRaw(IconTether)
+    },
+    {
+        text: 'Monero XMR',
+        icon: markRaw(IconMonero)
+    },
+    {
+        text: 'Cash RUB',
+        icon: markRaw(IconCash)
+    },
+    {
+        text: 'Visa/MasterCard USD',
+        icon: markRaw(IconVisaMasterCardUSD)
+    },
+    {
+        text: 'Visa/MasterCard EUR',
+        icon: markRaw(IconVisaMasterCardEUR)
+    },
+    {
+        text: 'Ethereum ETH',
+        icon: markRaw(IconEthereum)
+    },
+    {
+        text: 'EOS EOS',
+        icon: markRaw(IconEOS)
+    },
+    {
+        text: 'TrueUSD TRC20 TUSD',
+        icon: markRaw(IconTrueUSD)
+    },
+    {
+        text: 'Tether TRC20 USDT',
+        icon: markRaw(IconTether)
+    },
+    {
+        text: 'Monero XMR',
+        icon: markRaw(IconMonero)
+    }
 ])
 
-function changeDirection(d: 'give' | 'take', payment: string) {
+function changeDirection(d: 'give' | 'take', payment: Payment) {
     direction[d] = payment
     openPaymentSelect.value = null
 }
@@ -55,7 +119,7 @@ function changeDirection(d: 'give' | 'take', payment: string) {
                 <ExchangerBlockTextField
                     :type="'number'"
                     :placeholder="'0.00'"
-                    :icon="direction.give"
+                    :icon="direction.give.icon"
                     @set-open-payment-select="openPaymentSelect = 'give'"
                 />
             </div>
@@ -81,7 +145,7 @@ function changeDirection(d: 'give' | 'take', payment: string) {
                 <div class="exchanger__payments-list">
                     <ExchangerBlockPayment
                         v-for="payment in paymentsItems"
-                        :key="payment"
+                        :key="payment.text"
                         :payment="payment"
                         :selected="direction.give === payment"
                         @click="changeDirection('give', payment)"
@@ -125,7 +189,7 @@ function changeDirection(d: 'give' | 'take', payment: string) {
                 <div class="exchanger__payments-list">
                     <ExchangerBlockPayment
                         v-for="payment in paymentsItems"
-                        :key="payment"
+                        :key="payment.text"
                         :payment="payment"
                         :selected="direction.take === payment"
                         @click="changeDirection('take', payment)"
@@ -166,12 +230,12 @@ function changeDirection(d: 'give' | 'take', payment: string) {
                     <ExchangerBlockTextField
                         :type="'text'"
                         :placeholder="'Name Surname card holder'"
-                        :icon="'Visa/MasterCard USD'"
+                        :icon="IconVisaMasterCardUSD"
                     />
                     <ExchangerBlockTextField
                         :type="'text'"
                         :placeholder="'Tether ERC20 address'"
-                        :icon="'Tether TRC20 USDT'"
+                        :icon="IconTether"
                     />
                     <ExchangerBlockTextField
                         :type="'text'"

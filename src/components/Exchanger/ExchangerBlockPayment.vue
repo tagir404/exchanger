@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import IconPayment from '@/components/Icons/Payment/IconPayment.vue'
 import IconArrow from '@/components/Icons/IconArrow.vue'
 import IconSelected from '@/components/Icons/IconSelected.vue'
+import type { Payment } from '@/types/types'
 
 defineProps<{
-    payment: string
+    payment: Payment
     arrow?: 'up' | 'down'
     selected?: boolean
 }>()
@@ -12,8 +12,8 @@ defineProps<{
 
 <template>
     <div class="ex-payment">
-        <IconPayment :payment="payment" />
-        <span class="ex-payment__text">{{ payment }}</span>
+        <component :is="payment.icon" />
+        <span class="ex-payment__text">{{ payment.text }}</span>
         <IconArrow
             v-if="arrow"
             :direction="arrow"

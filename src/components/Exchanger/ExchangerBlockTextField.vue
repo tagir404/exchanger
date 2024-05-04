@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import IconPayment from '@/components/Icons/Payment/IconPayment.vue'
+import type { Component } from 'vue'
 
 defineProps<{
     type: string
     placeholder: string
-    icon?: string
+    icon?: Component
 }>()
 
 const emit = defineEmits<{
@@ -24,7 +24,7 @@ const emit = defineEmits<{
             class="ex-textfield__icon"
             @click="emit('setOpenPaymentSelect')"
         >
-            <IconPayment :payment="icon" />
+            <component :is="icon" />
         </div>
     </div>
 </template>

@@ -5,8 +5,6 @@ import IconConfidentiality from '@/components/Icons/Advantages/IconConfidentiali
 import IconSupport from '@/components/Icons/Advantages/IconSupport.vue'
 import type { Swiper } from 'swiper/types'
 
-const swiperEl = ref<Swiper>()
-
 const advantages = ref([
     {
         title: 'Guarantee',
@@ -39,6 +37,8 @@ const advantages = ref([
         icon: markRaw(IconGuarantee)
     }
 ])
+
+const swiperEl = ref<Swiper>()
 
 onMounted(() => {
     if (window.innerWidth > 550) {
