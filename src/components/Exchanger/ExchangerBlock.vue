@@ -163,7 +163,7 @@ function changeDirection(d: 'give' | 'take', payment: Payment) {
                 <ExchangerBlockTextField
                     :type="'number'"
                     :placeholder="'0.00'"
-                    :icon="direction.take"
+                    :icon="direction.take.icon"
                     @set-open-payment-select="openPaymentSelect = 'take'"
                 />
             </div>

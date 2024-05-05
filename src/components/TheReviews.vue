@@ -44,7 +44,10 @@ const reviews = ref([
 </script>
 
 <template>
-    <section class="reviews">
+    <section
+        id="reviews"
+        class="reviews"
+    >
         <AppContainer>
             <div class="reviews__head">
                 <h2 class="reviews__title section-title">Reviews</h2>

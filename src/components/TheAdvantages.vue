@@ -116,6 +116,7 @@ const advantages = ref([
 @media screen and (max-width: $mobile) {
     .advantages {
         padding: 24px 0;
+        overflow: hidden;
 
         &__title {
             margin-bottom: 16px;

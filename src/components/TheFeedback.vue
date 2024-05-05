@@ -33,7 +33,10 @@ const contacts = ref([
 </script>
 
 <template>
-    <section class="feedback">
+    <section
+        id="feedback"
+        class="feedback"
+    >
         <AppContainer class="feedback__container">
             <h2 class="feedback__title section-title">Feedback</h2>
             <div class="feedback__contacts">

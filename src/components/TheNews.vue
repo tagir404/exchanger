@@ -57,7 +57,10 @@ const news = ref([
 </script>
 
 <template>
-    <section class="news">
+    <section
+        id="news"
+        class="news"
+    >
         <AppContainer>
             <div class="news__head">
                 <h2 class="news__title section-title">News</h2>

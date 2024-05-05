@@ -1,5 +1,13 @@
 @import './base.scss';
 
+html {
+    scroll-behavior: smooth;
+}
+
+.scroll-blocked {
+    overflow: hidden;
+}
+
 .section-title {
     font-size: 40px;
     font-weight: normal;
