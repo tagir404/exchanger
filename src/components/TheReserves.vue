@@ -134,7 +134,7 @@ const reserves = ref([
 <template>
     <section class="reserves">
         <AppContainer class="reserves__container">
-            <h2 class="reserves__title section-title">Reserves</h2>
+            <h2 class="reserves__title section-title">Резервы</h2>
             <div class="reserves__list">
                 <div
                     v-for="reservesItem in reserves"

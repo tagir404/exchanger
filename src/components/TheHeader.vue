@@ -8,15 +8,11 @@ import { blockScroll, unblockScroll } from '@/utils/utils'
 
 const links = ref([
     {
-        text: 'News',
-        href: '#news'
-    },
-    {
-        text: 'Reviews',
+        text: 'Отзывы',
         href: '#reviews'
     },
     {
-        text: 'Feedback',
+        text: 'Обратная связь',
         href: '#feedback'
     }
 ])
@@ -55,8 +51,8 @@ watch(open, (val) => (val ? blockScroll() : unblockScroll()))
             </nav>
 
             <div class="actions">
-                <BaseButton :variant="'transparent-blue'">Login</BaseButton>
-                <BaseButton :variant="'blue'">Create an account</BaseButton>
+                <BaseButton :variant="'transparent-blue'">Войти</BaseButton>
+                <BaseButton :variant="'blue'">Создать аккаунт</BaseButton>
             </div>
         </div>
     </header>

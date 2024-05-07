@@ -38,7 +38,7 @@ const contacts = ref([
         class="feedback"
     >
         <AppContainer class="feedback__container">
-            <h2 class="feedback__title section-title">Feedback</h2>
+            <h2 class="feedback__title section-title">Обратная связь</h2>
             <div class="feedback__contacts">
                 <a
                     v-for="contact in contacts"

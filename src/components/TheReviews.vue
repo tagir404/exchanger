@@ -50,8 +50,8 @@ const reviews = ref([
     >
         <AppContainer>
             <div class="reviews__head">
-                <h2 class="reviews__title section-title">Reviews</h2>
-                <BaseButton :variant="'white'">See all</BaseButton>
+                <h2 class="reviews__title section-title">Отзывы</h2>
+                <BaseButton :variant="'white'">Посмотреть все</BaseButton>
             </div>
             <swiper-container
                 class="reviews__list"

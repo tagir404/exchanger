@@ -5,10 +5,8 @@ import ExchangerBlock from '@/components/Exchanger/ExchangerBlock.vue'
 <template>
     <section class="intro">
         <AppContainer class="intro__container">
-            <h1 class="intro__title">Exchange Cryptocurrencies Safely and Securely with Us</h1>
-            <p class="intro__subtitle">
-                Trade Cryptocurrencies Effortlessly with Our Exchange Service
-            </p>
+            <h1 class="intro__title">Надежный сервис <br />по обмену криптовалют</h1>
+            <p class="intro__subtitle">Международные платежи и переводы без ограничений</p>
             <ExchangerBlock />
         </AppContainer>
     </section>
@@ -33,7 +31,6 @@ import ExchangerBlock from '@/components/Exchanger/ExchangerBlock.vue'
         font-weight: 400;
         text-align: center;
         margin-bottom: 11px;
-        max-width: 750px;
     }
 
     &__subtitle {

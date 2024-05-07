@@ -15,10 +15,10 @@ import IconMonero from '@/components/Icons/Payment/IconMonero.vue'
 
 import type { Payment } from '@/types/types'
 
-const currencyItems = ref(['all', 'usd', 'eur', 'rus'])
+const currencyItems = ref(['все', 'rub', 'aed', 'usd'])
 const activeCurrency = reactive({
-    give: 'all',
-    take: 'all'
+    give: 'все',
+    take: 'все'
 })
 
 const direction = reactive<{ give: Payment; take: Payment }>({
@@ -112,8 +112,8 @@ function changeDirection(d: 'give' | 'take', payment: Payment) {
         <div class="exchanger__col">
             <div class="exchanger__col-header">
                 <div class="exchanger__col-info">
-                    <h4 class="exchanger__col-title">Give</h4>
-                    <p class="exchanger__col-fn">Min: 50.00 Max: 10000.00</p>
+                    <h4 class="exchanger__col-title">Отдаёте</h4>
+                    <p class="exchanger__col-fn">Мин: 50.00 Макс: 10000.00</p>
                     <IconArrow />
                 </div>
                 <ExchangerBlockTextField
@@ -156,8 +156,8 @@ function changeDirection(d: 'give' | 'take', payment: Payment) {
         <div class="exchanger__col">
             <div class="exchanger__col-header">
                 <div class="exchanger__col-info">
-                    <h4 class="exchanger__col-title">Take</h4>
-                    <p class="exchanger__col-fn">Reserve: 1001028.70</p>
+                    <h4 class="exchanger__col-title">Получите</h4>
+                    <p class="exchanger__col-fn">Резерв: 1001028.70</p>
                     <IconArrow />
                 </div>
                 <ExchangerBlockTextField
@@ -200,8 +200,8 @@ function changeDirection(d: 'give' | 'take', payment: Payment) {
         <div class="exchanger__col">
             <div class="exchanger__col-header">
                 <div class="exchanger__col-info">
-                    <h4 class="exchanger__col-title">Exchange details</h4>
-                    <p class="exchanger__col-fn">Rate: 1.022:1</p>
+                    <h4 class="exchanger__col-title">Детали обмена</h4>
+                    <p class="exchanger__col-fn">Курс: 1.022:1</p>
                 </div>
                 <div class="exchanger__direction">
                     <ExchangerBlockPayment
